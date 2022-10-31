@@ -1,0 +1,37 @@
+{
+    attributes = (
+        {
+            columnName = creationDate; 
+            externalType = Timestamp; 
+            name = creationDate; 
+            prototypeName = dateTime; 
+            serverTimeZone = "Europe/Zurich"; 
+        }, 
+        {columnName = hash; name = hash; prototypeName = varchar100; }, 
+        {allowsNull = N; name = id; prototypeName = id; }, 
+        {columnName = publicID; name = publicID; prototypeName = varchar100; }, 
+        {
+            allowsNull = N; 
+            columnName = simedUserID; 
+            name = simedUserID; 
+            prototypeName = id; 
+        }
+    ); 
+    attributesUsedForLocking = (id, publicID, simedUserID); 
+    className = "ch.hcuge.simed.cohort.transverse.db.OldPassHash"; 
+    classProperties = (creationDate, hash, publicID, simedUser); 
+    externalName = OldPassHash; 
+    fetchSpecificationDictionary = {}; 
+    name = OldPassHash; 
+    primaryKeyAttributes = (id); 
+    relationships = (
+        {
+            destination = SimedUser; 
+            isMandatory = Y; 
+            isToMany = N; 
+            joinSemantic = EOInnerJoin; 
+            joins = ({destinationAttribute = id; sourceAttribute = simedUserID; }); 
+            name = simedUser; 
+        }
+    ); 
+}

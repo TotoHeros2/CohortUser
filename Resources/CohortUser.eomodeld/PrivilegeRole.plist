@@ -1,0 +1,36 @@
+{
+    attributes = (
+        {
+            allowsNull = N; 
+            columnName = privilegeId; 
+            name = privilegeId; 
+            prototypeName = id; 
+        }, 
+        {allowsNull = N; columnName = roleId; name = roleId; prototypeName = id; }
+    ); 
+    attributesUsedForLocking = (privilegeId, roleId); 
+    className = EOGenericRecord; 
+    externalName = PrivilegeRole; 
+    fetchSpecificationDictionary = {}; 
+    name = PrivilegeRole; 
+    primaryKeyAttributes = (privilegeId, roleId); 
+    relationships = (
+        {
+            destination = Privilege; 
+            isMandatory = Y; 
+            isToMany = N; 
+            joinSemantic = EOInnerJoin; 
+            joins = ({destinationAttribute = id; sourceAttribute = privilegeId; }); 
+            name = privilege; 
+        }, 
+        {
+            destination = Role; 
+            isMandatory = Y; 
+            isToMany = N; 
+            joinSemantic = EOInnerJoin; 
+            joins = ({destinationAttribute = id; sourceAttribute = roleId; }); 
+            name = role; 
+        }
+    ); 
+    userInfo = {"_EntityModeler" = {generateSource = NO; }; }; 
+}

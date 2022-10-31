@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Refresh user</title>
+    <wo:ERXStyleSheet filename = "simed.css" />
+  </head>
+  <body> 
+  <wo:conditional condition = "$user">
+  User : <wo:str value = "~user.firstName + ' ' + user.lastName"></wo:str>
+  <br>
+  Valid : <wo:str value = "$user.isActive"></wo:str>
+  <br>
+  Pwd : <wo:str value = "$user.passwordHash"></wo:str>
+  <br>
+  url : <wo:str value = "$user.urlParam"></wo:str>
+
+  <br>
+  
+  </wo:conditional>
+  <wo:conditional condition = "$user" negate = "true">
+  This login doesnot exist
+  </wo:conditional>
+</body>
+</html>

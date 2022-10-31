@@ -1,0 +1,16 @@
+{
+    attributes = (
+        {columnName = code; name = code; prototypeName = varchar10; }, 
+        {allowsNull = N; name = id; prototypeName = id; }, 
+        {columnName = name; name = name; prototypeName = varchar50; }, 
+        {columnName = publicID; name = publicID; prototypeName = varchar100; }
+    ); 
+    attributesUsedForLocking = (code, id, name, publicID); 
+    className = "ch.hcuge.simed.cohort.transverse.db.Privilege"; 
+    classProperties = (code, name, publicID); 
+    externalName = Privilege; 
+    fetchSpecificationDictionary = {}; 
+    name = Privilege; 
+    primaryKeyAttributes = (id); 
+    userInfo = {"_EntityModeler" = {generateSource = NO; }; }; 
+}

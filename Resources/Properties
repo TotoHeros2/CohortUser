@@ -1,0 +1,3 @@
+#dbConnectURLGLOBAL=jdbc:oracle:thin:@znoberon.hcuge.ch:1535:CF200
+#dbConnectUserGLOBAL=sscs_o
+#dbConnectPasswordGLOBAL=ghg7wj

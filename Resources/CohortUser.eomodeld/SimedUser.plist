@@ -1,0 +1,92 @@
+{
+    attributes = (
+        {
+            allowsNull = Y; 
+            columnName = canUseAuditTrail; 
+            name = canUseAuditTrail; 
+            prototypeName = intBoolean; 
+        }, 
+        {
+            allowsNull = Y; 
+            columnName = canUseSampleManager; 
+            name = canUseSampleManager; 
+            prototypeName = intBoolean; 
+        }, 
+        {
+            allowsNull = Y; 
+            columnName = currentWorkPositionID; 
+            name = currentWorkPositionID; 
+            prototypeName = id; 
+        }, 
+        {columnName = email; name = email; prototypeName = varchar50; }, 
+        {columnName = firstName; name = firstName; prototypeName = varchar50; }, 
+        {allowsNull = N; name = id; prototypeName = id; }, 
+        {columnName = isActive; name = isActive; prototypeName = intBoolean; }, 
+        {columnName = lastName; name = lastName; prototypeName = varchar50; }, 
+        {columnName = login; name = login; prototypeName = varchar50; }, 
+        {
+            allowsNull = Y; 
+            columnName = passwordHash; 
+            name = passwordHash; 
+            prototypeName = varchar100; 
+        }, 
+        {columnName = publicID; name = publicID; prototypeName = varchar100; }, 
+        {
+            allowsNull = Y; 
+            columnName = urlParam; 
+            name = urlParam; 
+            prototypeName = varchar100; 
+        }
+    ); 
+    attributesUsedForLocking = (currentWorkPositionID, id, isActive, publicID); 
+    className = "ch.hcuge.simed.cohort.transverse.db.SimedUser"; 
+    classProperties = (
+        canUseAuditTrail, 
+        canUseSampleManager, 
+        currentWorkPosition, 
+        email, 
+        firstName, 
+        isActive, 
+        lastName, 
+        login, 
+        oldPassHashs, 
+        passwordHash, 
+        publicID, 
+        urlParam, 
+        workPositions
+    ); 
+    externalName = SimedUser; 
+    fetchSpecificationDictionary = {}; 
+    name = SimedUser; 
+    primaryKeyAttributes = (id); 
+    relationships = (
+        {
+            destination = WorkPosition; 
+            isToMany = N; 
+            joinSemantic = EOInnerJoin; 
+            joins = ({destinationAttribute = id; sourceAttribute = currentWorkPositionID; }); 
+            name = currentWorkPosition; 
+        }, 
+        {
+            deleteRule = EODeleteRuleCascade; 
+            destination = OldPassHash; 
+            isToMany = Y; 
+            joinSemantic = EOInnerJoin; 
+            joins = ({destinationAttribute = simedUserID; sourceAttribute = id; }); 
+            name = oldPassHashs; 
+        }, 
+        {
+            deleteRule = EODeleteRuleCascade; 
+            destination = UserWorkPosition; 
+            isToMany = Y; 
+            joinSemantic = EOInnerJoin; 
+            joins = ({destinationAttribute = userId; sourceAttribute = id; }); 
+            name = userWorkPositions; 
+        }, 
+        {
+            definition = "userWorkPositions.workPosition"; 
+            deleteRule = EODeleteRuleCascade; 
+            name = workPositions; 
+        }
+    ); 
+}

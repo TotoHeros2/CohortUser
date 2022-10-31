@@ -1,0 +1,82 @@
+<div class = "flex-container">
+  <div class = "table-row noborder">
+    <div class = "column noborder width-030">&nbsp;</div>
+    <div class = "column noborder width-040">
+      <div id = "loginPanel" class = "flex-container">
+        <wo:form name = "loginForm" id = "loginForm" multipleSubmit = "true">
+          <wo:conditional condition = "$hasLogo">
+            <div class = "table-row noborder margin-vertical-5">
+              <div id = "logo" class = "column noborder width-100"> <wo:image alt = "logo" filename = "$logoName" framework = "$framework" class = "logologin" id = "logologin" /> </div>
+            </div>
+          </wo:conditional>
+          <div class = "table-row noborder margin-vertical-2">
+            <div class = "column noborder width-050 flex-justify-end"> Login:&nbsp;</div>
+            <div class = "column noborder width-050 flex-justify-start"> <wo:textField id = "loginField" name = "loginField" width = "100" value = "$login" /> </div>
+          </div>
+          <div class = "table-row noborder margin-vertical-2">
+            <div class = "column noborder width-050 flex-justify-end"> Password:&nbsp;</div>
+            <div class = "column noborder width-050 flex-justify-start"> <wo:passwordField id = "passwordField" name = "passwordField" width = "100" value = "$password" /> </div>
+          </div>
+          <div class = "table-row noborder margin-vertical-5">
+            <div class = "column noborder width-100">
+              <wo:submitButton id = "loginButton" name = "loginButton" action = "$validateLogin" value = "Login">Login</wo:submitButton>
+            </div>
+          </div>
+          <wo:conditional condition = "$isDevMode">
+            <div class = "table-row noborder margin-vertical-5">
+              <div id = "devMode" class = "column noborder width-100">
+                <br />
+                <wo:hyperlink action = "$devLoginWithDefaultUser">no login</wo:hyperlink>
+              </div>
+            </div>
+          </wo:conditional>
+          <wo:conditional condition = "$errorMessage">
+            <div class = "table-row noborder margin-vertical-5">
+              <div id = "errorMessage" class = "column noborder width-100  warn"> <wo:string value = "$errorMessage" /> </div>
+            </div>
+          </wo:conditional>
+            <div id="warningBrowser" style = "display:none;" class = "table-row noborder margin-vertical-5">
+          		<fieldset>
+          		<legend>Warning</legend>
+              	<div  class = "column border width-100  warn" style="border-width:1px;">
+					Your browser doesnot support full html5 features.<br>
+					Please use Chrome, a recent Firefox (Min. version 57)  or Edge.<br>
+					
+					With this browser, you will have to manually enter date in the YYYY-MM-DD format.
+				</div>
+			</fieldset>
+
+			</div>
+        </wo:form>
+      </div>
+    </div>
+    <div class = "column noborder width-030">&nbsp;
+    
+
+    
+    </div>
+  </div>
+</div>
+
+   <script>
+function checkDateInput() {
+    var input = document.createElement('input');
+    input.setAttribute('type','date');
+    var notADateValue = 'not-a-date';
+    input.setAttribute('value', notADateValue); 
+    var val = input.type;
+    return (input.value !== notADateValue);
+    
+ }
+ 
+ function checkDateInputImplemented() {
+    var input = document.createElement("input");
+    input.setAttribute("type", 'date');
+    return input.type == 'date';
+}
+ if (!checkDateInputImplemented())
+ {
+	 document.getElementById("warningBrowser").style.display = "inline";
+ }
+ 
+</script>

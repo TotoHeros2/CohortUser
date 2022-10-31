@@ -1,0 +1,37 @@
+{
+    attributes = (
+        {allowsNull = N; columnName = userId; name = userId; prototypeName = id; }, 
+        {
+            allowsNull = N; 
+            columnName = workPositionId; 
+            name = workPositionId; 
+            prototypeName = id; 
+        }
+    ); 
+    attributesUsedForLocking = (userId, workPositionId); 
+    className = EOGenericRecord; 
+    classProperties = (user, workPosition); 
+    externalName = UserWorkPosition; 
+    fetchSpecificationDictionary = {}; 
+    name = UserWorkPosition; 
+    primaryKeyAttributes = (userId, workPositionId); 
+    relationships = (
+        {
+            destination = SimedUser; 
+            isMandatory = Y; 
+            isToMany = N; 
+            joinSemantic = EOInnerJoin; 
+            joins = ({destinationAttribute = id; sourceAttribute = userId; }); 
+            name = user; 
+        }, 
+        {
+            destination = WorkPosition; 
+            isMandatory = Y; 
+            isToMany = N; 
+            joinSemantic = EOInnerJoin; 
+            joins = ({destinationAttribute = id; sourceAttribute = workPositionId; }); 
+            name = workPosition; 
+        }
+    ); 
+    userInfo = {"_EntityModeler" = {generateSource = NO; }; }; 
+}

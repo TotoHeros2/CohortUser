@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Main Page</title>
+    <wo:ERXStyleSheet filename = "simed.css" />
+  </head>
+  <div class = "flex-container">
+	<div class = "table-row noborder">
+		<div class = "column noborder width-030">&nbsp;</div>
+		<div class = "column noborder width-040">
+			<div id = "loginPanel" class = "flex-container">
+			<wo:conditional condition = "$hasLogo">
+				<div class = "table-row noborder margin-vertical-5">
+					<div id = "logo" class = "column noborder width-100"> <wo:image alt = "logo" filename = "$logoName" framework = "$framework" class = "logologin" id = "logologin" /> </div>
+				</div>
+			</wo:conditional>
+
+			
+			<wo:conditional condition = "$error">
+              <div id="warningBrowser"  class = "table-row noborder margin-vertical-5">
+          		<fieldset>
+					<legend>Error</legend>
+					<div  class = "column border width-100  warn" style="border-width:1px;">
+					The application experiences the following error at <wo:str value="$now"></wo:str> : <br>
+  					<wo:str value = "$rootCause" ></wo:str><br>
+  					<br>
+					Please contact the Simed group with error details :<br>
+   					<wo:str value = "$stackTrace"></wo:str><br>
+  					
+					</div>
+				</fieldset>
+			</div>
+			</wo:conditional>
+		</div>
+	</div>
+    <div class = "column noborder width-030">&nbsp; 
+    </div>
+  </div>	
+  </div>
+</html>

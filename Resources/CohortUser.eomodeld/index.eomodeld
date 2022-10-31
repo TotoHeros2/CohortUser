@@ -1,0 +1,53 @@
+{
+    EOModelVersion = "2.1"; 
+    adaptorName = JDBC; 
+    connectionDictionary = {
+        URL = "jdbc:oracle:thin:@localhost:1521:XE"; 
+        driver = ""; 
+        password = sscs; 
+        plugin = ""; 
+        username = sscs; 
+    }; 
+    entities = (
+        {className = "ch.hcuge.simed.cohort.transverse.db.Center"; name = Center; }, 
+        {className = "ch.hcuge.simed.cohort.transverse.db.Country"; name = Country; }, 
+        {
+            className = "ch.hcuge.simed.cohort.transverse.db.OldPassHash"; 
+            name = OldPassHash; 
+        }, 
+        {
+            className = "ch.hcuge.simed.cohort.transverse.db.Privilege"; 
+            name = Privilege; 
+        }, 
+        {className = EOGenericRecord; name = PrivilegeRole; }, 
+        {className = "ch.hcuge.simed.cohort.transverse.db.Role"; name = Role; }, 
+        {
+            className = "ch.hcuge.simed.cohort.transverse.db.SimedUser"; 
+            name = SimedUser; 
+        }, 
+        {className = EOGenericRecord; name = UserWorkPosition; }, 
+        {
+            className = "ch.hcuge.simed.cohort.transverse.db.WorkPosition"; 
+            name = WorkPosition; 
+        }
+    ); 
+    userInfo = {
+        "_EntityModeler" = {
+            activeDatabaseConfigName = Default; 
+            databaseConfigs = {
+                Default = {
+                    adaptorName = JDBC; 
+                    connectionDictionary = {
+                        URL = "jdbc:oracle:thin:@localhost:1521:XE"; 
+                        driver = ""; 
+                        password = sscs; 
+                        plugin = ""; 
+                        username = sscs; 
+                    }; 
+                    prototypeEntityName = EOJDBCOraclePrototypes; 
+                }; 
+            }; 
+            documentation = "Model representing the cohort user relationship"; 
+        }; 
+    }; 
+}

@@ -1,0 +1,35 @@
+{
+    attributes = (
+        {columnName = address; name = address; prototypeName = varchar100; }, 
+        {columnName = city; name = city; prototypeName = varchar50; }, 
+        {columnName = code; name = code; prototypeName = varchar10; }, 
+        {
+            allowsNull = N; 
+            columnName = countryID; 
+            name = countryID; 
+            prototypeName = id; 
+        }, 
+        {allowsNull = N; name = id; prototypeName = id; }, 
+        {columnName = name; name = name; prototypeName = varchar50; }, 
+        {columnName = postalCode; name = postalCode; prototypeName = varchar10; }, 
+        {columnName = publicID; name = publicID; prototypeName = varchar100; }
+    ); 
+    attributesUsedForLocking = (address, city, code, countryID, id, name, postalCode, publicID); 
+    className = "ch.hcuge.simed.cohort.transverse.db.Center"; 
+    classProperties = (address, city, code, country, name, postalCode, publicID); 
+    externalName = Center; 
+    fetchSpecificationDictionary = {}; 
+    name = Center; 
+    primaryKeyAttributes = (id); 
+    relationships = (
+        {
+            destination = Country; 
+            isMandatory = Y; 
+            isToMany = N; 
+            joinSemantic = EOInnerJoin; 
+            joins = ({destinationAttribute = id; sourceAttribute = countryID; }); 
+            name = country; 
+        }
+    ); 
+    userInfo = {"_EntityModeler" = {generateSource = NO; }; }; 
+}

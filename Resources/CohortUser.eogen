@@ -1,0 +1,12 @@
+ -destination Sources \
+ -extension java \
+ -java \
+ -javaTemplate _WonderEntity.java \
+ -model Resources/CohortUser.eomodeld \
+ -packagedirs \
+ -subclassDestination Sources \
+ -subclassJavaTemplate WonderEntity.java \
+ -templatedir ../SimedFoundation/EOGenTemplate \
+ -verbose \
+ -loadModelGroup \
+ -define-superClassName ch.hcuge.simed.foundation.eo.SimedEnterpriseObject

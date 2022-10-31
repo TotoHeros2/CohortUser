@@ -1,0 +1,28 @@
+{
+    attributes = (
+        {columnName = code; name = code; prototypeName = varchar10; }, 
+        {allowsNull = N; name = id; prototypeName = id; }, 
+        {columnName = name; name = name; prototypeName = varchar50; }, 
+        {columnName = publicID; name = publicID; prototypeName = varchar100; }
+    ); 
+    attributesUsedForLocking = (code, id, name, publicID); 
+    className = "ch.hcuge.simed.cohort.transverse.db.Role"; 
+    classProperties = (code, name, privileges, publicID); 
+    externalName = Role; 
+    fetchSpecificationDictionary = {}; 
+    name = Role; 
+    primaryKeyAttributes = (id); 
+    relationships = (
+        {
+            deleteRule = EODeleteRuleCascade; 
+            destination = PrivilegeRole; 
+            isToMany = Y; 
+            joinSemantic = EOInnerJoin; 
+            joins = ({destinationAttribute = roleId; sourceAttribute = id; }); 
+            name = privilegeRoles; 
+            propagatesPrimaryKey = Y; 
+        }, 
+        {definition = "privilegeRoles.privilege"; name = privileges; }
+    ); 
+    userInfo = {"_EntityModeler" = {generateSource = NO; }; }; 
+}

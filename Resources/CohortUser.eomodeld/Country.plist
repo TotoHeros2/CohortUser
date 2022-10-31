@@ -1,0 +1,35 @@
+{
+    attributes = (
+        {columnName = englishName; name = englishName; prototypeName = varchar100; }, 
+        {allowsNull = N; name = id; prototypeName = id; }, 
+        {
+            columnName = longCode; 
+            name = longCode; 
+            prototypeName = varchar10; 
+            width = 3; 
+        }, 
+        {
+            columnName = shortCode; 
+            name = shortCode; 
+            prototypeName = varchar10; 
+            width = 2; 
+        }
+    ); 
+    attributesUsedForLocking = (englishName, id, longCode, shortCode); 
+    className = "ch.hcuge.simed.cohort.transverse.db.Country"; 
+    classProperties = (centers, englishName, longCode, shortCode); 
+    externalName = Country; 
+    fetchSpecificationDictionary = {}; 
+    name = Country; 
+    primaryKeyAttributes = (id); 
+    relationships = (
+        {
+            destination = Center; 
+            isToMany = Y; 
+            joinSemantic = EOInnerJoin; 
+            joins = ({destinationAttribute = countryID; sourceAttribute = id; }); 
+            name = centers; 
+        }
+    ); 
+    userInfo = {"_EntityModeler" = {generateSource = NO; }; }; 
+}
